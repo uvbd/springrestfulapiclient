@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Connection Metadata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Root User</th>
+                <th>Postgres Version</th>
+                <th>postgres Version Details</th>
+                <th>UV Version</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${uvMetaDataOutTO.rootUser}"></td>
+                <td th:text="${uvMetaDataOutTO.postgresVersion}"></td>
+                <td th:text="${uvMetaDataOutTO.postgresVersionDetails}"></td>
+                <td th:text="${uvMetaDataOutTO.uvVersion}"></td>
+           
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

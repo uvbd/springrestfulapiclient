@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>OSM Building Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link th:href="@{/css/buildinginfo.css}" rel="stylesheet" />
+<script src="/js/datatable.js"></script>
+
+</head>
+<body>
+<h1>Data Search Criteria:</h1>
+    <form action="#">
+    <table>
+    <tr>
+     <td>Osm Geo Id:<input type="text"/></td>
+     <td>Type: <input type="text"/></td>
+     <td>Name: <input type="text"/></td>
+    </tr>
+     <tr>
+    <td><input type="submit" value="Submit"/> </td>
+     <td><input type="reset" value="Reset" /></td>
+     <td></td>
+    </tr>
+    </table>
+    </form>
+   
+<div class="container">
+    <table id="customers">
+        <thead>
+            <tr>
+                <th>Geo Id</th>
+                <th>Osm Geo Id</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Geography</th>
+                <th>Area Sq.Km</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+      <tr th:each="osmDataOutputTO:${osmDataInputTOs}">
+         
+           <td th:text="${osmDataOutputTO.gId}"></td>
+           <td th:text="${osmDataOutputTO.osmId}"></td>
+           <td th:text="${osmDataOutputTO.type}"></td>
+           <td th:text="${osmDataOutputTO.name}"></td>
+           <td th:text="${osmDataOutputTO.geom}"></td>
+           <td th:text="${osmDataOutputTO.areaSqkm}"></td>
+          
+      </tr>
+  
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
